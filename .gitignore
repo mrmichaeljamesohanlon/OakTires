@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/code/.vs/UserManagementApi/copilot-chat/9d964ab0/sessions
+/code/.vs/UserManagementApi/CopilotIndices/17.14.1368.60722
+/code/UserManagementApi
+/code/.vs/UserManagementApi

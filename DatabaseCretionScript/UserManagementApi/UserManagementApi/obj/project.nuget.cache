@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "nyTQzUlZZ40=",
+  "success": false,
+  "projectFilePath": "C:\\Git\\OakTires\\DatabaseCretionScript\\UserManagementApi\\UserManagementApi\\UserManagementApi.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.NET.ILLink.Tasks' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.net.illink.tasks/index.json'.\r\n  An error occurred while sending the request.\r\n  The remote name could not be resolved: 'api.nuget.org'",
+      "projectPath": "C:\\Git\\OakTires\\DatabaseCretionScript\\UserManagementApi\\UserManagementApi\\UserManagementApi.csproj",
+      "filePath": "C:\\Git\\OakTires\\DatabaseCretionScript\\UserManagementApi\\UserManagementApi\\UserManagementApi.csproj",
+      "libraryId": "Microsoft.NET.ILLink.Tasks",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Failed to retrieve information about 'Microsoft.DotNet.ILCompiler' from remote source 'https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/index.json'.\r\n  An error occurred while sending the request.\r\n  The remote name could not be resolved: 'api.nuget.org'",
+      "projectPath": "C:\\Git\\OakTires\\DatabaseCretionScript\\UserManagementApi\\UserManagementApi\\UserManagementApi.csproj",
+      "filePath": "C:\\Git\\OakTires\\DatabaseCretionScript\\UserManagementApi\\UserManagementApi\\UserManagementApi.csproj",
+      "libraryId": "Microsoft.DotNet.ILCompiler",
+      "targetGraphs": []
+    }
+  ]
+}
