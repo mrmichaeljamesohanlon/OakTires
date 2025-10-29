@@ -97,3 +97,346 @@ m.ohanlon@live.co.uk
 
 ****<img width="1385" height="691" alt="image" src="https://github.com/user-attachments/assets/859e50c0-eb5a-4506-99b8-121b7be3b0bd" />
 
+2025-10-29 17:51:37.679 +00:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-29 17:51:37.763 +00:00 [INF] User profile is available. Using 'C:\Users\Owner\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-29 17:51:37.883 +00:00 [INF] Now listening on: http://localhost:5163
+2025-10-29 17:51:37.888 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 17:51:37.910 +00:00 [INF] Hosting environment: Development
+2025-10-29 17:51:37.912 +00:00 [INF] Content root path: C:\Git\OakTires\code\UserManagementApi
+2025-10-29 17:51:38.354 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/swagger/v1/swagger.json - null null
+2025-10-29 17:51:38.498 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 153.6407ms
+2025-10-29 17:51:46.665 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5163/auth/register - application/json 166
+2025-10-29 17:51:46.754 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.AuthController.Register (UserManagementApi)'
+2025-10-29 17:51:46.777 +00:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(UserManagementApi.DTO.RegisterDto) on controller UserManagementApi.Controllers.AuthController (UserManagementApi).
+2025-10-29 17:51:46.933 +00:00 [INF] Executed DbCommand (20ms) [Parameters=[@__dto_Username_0='?' (Size = 4000), @__dto_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__dto_Username_0 OR [u].[Email] = @__dto_Email_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-29 17:51:46.937 +00:00 [WRN] Registration failed for apitestuser
+2025-10-29 17:51:46.943 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-10-29 17:51:46.948 +00:00 [INF] Executed action UserManagementApi.Controllers.AuthController.Register (UserManagementApi) in 164.438ms
+2025-10-29 17:51:46.949 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.AuthController.Register (UserManagementApi)'
+2025-10-29 17:51:46.955 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5163/auth/register - 400 null text/plain; charset=utf-8 290.5689ms
+2025-10-29 17:51:46.958 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5163/auth/login - application/json 70
+2025-10-29 17:51:46.962 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.AuthController.Login (UserManagementApi)'
+2025-10-29 17:51:46.966 +00:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(UserManagementApi.DTO.LoginDto) on controller UserManagementApi.Controllers.AuthController (UserManagementApi).
+2025-10-29 17:51:47.087 +00:00 [INF] Executed DbCommand (12ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2025-10-29 17:51:47.547 +00:00 [INF] Executed DbCommand (7ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLoginAt] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-10-29 17:51:47.590 +00:00 [INF] User logged in: apitestuser
+2025-10-29 17:51:47.593 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-29 17:51:47.611 +00:00 [INF] Executed action UserManagementApi.Controllers.AuthController.Login (UserManagementApi) in 641.1718ms
+2025-10-29 17:51:47.614 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.AuthController.Login (UserManagementApi)'
+2025-10-29 17:51:47.616 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5163/auth/login - 200 null application/json; charset=utf-8 657.627ms
+2025-10-29 17:51:47.621 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/users - null null
+2025-10-29 17:51:47.659 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi)'
+2025-10-29 17:51:47.664 +00:00 [INF] Route matched with {action = "GetAllUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllUsers() on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 17:51:47.683 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Username], [u].[Email], [u].[FirstName], [u].[LastName], [u].[CreatedAt], [u].[LastLoginAt]
+FROM [Users] AS [u]
+2025-10-29 17:51:47.693 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[UserManagementApi.DTO.UserDto, UserManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 17:51:47.713 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi) in 46.9936ms
+2025-10-29 17:51:47.716 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi)'
+2025-10-29 17:51:47.717 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/users - 200 null application/json; charset=utf-8 96.6534ms
+2025-10-29 17:51:47.722 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/users/ed08feba-2ac9-463d-b784-09d8cca19ac8 - null null
+2025-10-29 17:51:47.728 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi)'
+2025-10-29 17:51:47.732 +00:00 [INF] Route matched with {action = "GetUserById", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserById(System.Guid) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 17:51:47.780 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 17:51:47.784 +00:00 [INF] Executing OkObjectResult, writing value of type 'UserManagementApi.DTO.UserDto'.
+2025-10-29 17:51:47.785 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi) in 49.6462ms
+2025-10-29 17:51:47.787 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi)'
+2025-10-29 17:51:47.788 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/users/ed08feba-2ac9-463d-b784-09d8cca19ac8 - 200 null application/json; charset=utf-8 65.5563ms
+2025-10-29 17:51:47.791 +00:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5163/users/ed08feba-2ac9-463d-b784-09d8cca19ac8 - application/json 109
+2025-10-29 17:51:47.794 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi)'
+2025-10-29 17:51:47.798 +00:00 [INF] Route matched with {action = "UpdateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(System.Guid, UserManagementApi.DTO.UpdateUserDto) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 17:51:47.810 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 17:51:47.816 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [FirstName] = @p1, [LastName] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-10-29 17:51:47.819 +00:00 [INF] User updated: "ed08feba-2ac9-463d-b784-09d8cca19ac8"
+2025-10-29 17:51:47.822 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-29 17:51:47.823 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi) in 21.6041ms
+2025-10-29 17:51:47.824 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi)'
+2025-10-29 17:51:47.825 +00:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5163/users/ed08feba-2ac9-463d-b784-09d8cca19ac8 - 204 null null 34.7326ms
+2025-10-29 17:51:47.829 +00:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5163/users/ed08feba-2ac9-463d-b784-09d8cca19ac8 - null 0
+2025-10-29 17:51:47.832 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi)'
+2025-10-29 17:51:47.836 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.Guid) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 17:51:47.844 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 17:51:47.858 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Users]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-10-29 17:51:47.864 +00:00 [INF] User deleted: "ed08feba-2ac9-463d-b784-09d8cca19ac8"
+2025-10-29 17:51:47.866 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-29 17:51:47.867 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi) in 28.2748ms
+2025-10-29 17:51:47.868 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi)'
+2025-10-29 17:51:47.869 +00:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5163/users/ed08feba-2ac9-463d-b784-09d8cca19ac8 - 204 null null 40.489ms
+2025-10-29 18:05:58.550 +00:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-29 18:05:58.645 +00:00 [INF] User profile is available. Using 'C:\Users\Owner\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-29 18:05:58.752 +00:00 [INF] Now listening on: http://localhost:5163
+2025-10-29 18:05:58.757 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 18:05:58.758 +00:00 [INF] Hosting environment: Development
+2025-10-29 18:05:58.758 +00:00 [INF] Content root path: C:\Git\OakTires\code\UserManagementApi
+2025-10-29 18:05:59.368 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/swagger/v1/swagger.json - null null
+2025-10-29 18:05:59.496 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 137.1379ms
+2025-10-29 18:06:47.083 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5163/auth/register - application/json 166
+2025-10-29 18:06:47.168 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.AuthController.Register (UserManagementApi)'
+2025-10-29 18:06:47.188 +00:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(UserManagementApi.DTO.RegisterDto) on controller UserManagementApi.Controllers.AuthController (UserManagementApi).
+2025-10-29 18:06:47.359 +00:00 [INF] Executed DbCommand (20ms) [Parameters=[@__dto_Username_0='?' (Size = 4000), @__dto_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__dto_Username_0 OR [u].[Email] = @__dto_Email_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-29 18:06:47.364 +00:00 [WRN] Registration failed for apitestuser
+2025-10-29 18:06:47.370 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-10-29 18:06:47.375 +00:00 [INF] Executed action UserManagementApi.Controllers.AuthController.Register (UserManagementApi) in 176.8025ms
+2025-10-29 18:06:47.377 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.AuthController.Register (UserManagementApi)'
+2025-10-29 18:06:47.383 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5163/auth/register - 400 null text/plain; charset=utf-8 300.518ms
+2025-10-29 18:06:47.386 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5163/auth/login - application/json 70
+2025-10-29 18:06:47.390 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.AuthController.Login (UserManagementApi)'
+2025-10-29 18:06:47.395 +00:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(UserManagementApi.DTO.LoginDto) on controller UserManagementApi.Controllers.AuthController (UserManagementApi).
+2025-10-29 18:06:47.519 +00:00 [INF] Executed DbCommand (12ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2025-10-29 18:06:48.005 +00:00 [INF] Executed DbCommand (33ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLoginAt] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-10-29 18:06:48.051 +00:00 [INF] Start processing HTTP request POST https://your-webhook-endpoint.com/api/login-events
+2025-10-29 18:06:48.056 +00:00 [INF] Sending HTTP request POST https://your-webhook-endpoint.com/api/login-events
+2025-10-29 18:06:48.122 +00:00 [INF] User logged in: apitestuser
+2025-10-29 18:06:48.128 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-29 18:06:48.137 +00:00 [INF] Executed action UserManagementApi.Controllers.AuthController.Login (UserManagementApi) in 737.9937ms
+2025-10-29 18:06:48.139 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.AuthController.Login (UserManagementApi)'
+2025-10-29 18:06:48.142 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5163/auth/login - 200 null application/json; charset=utf-8 755.2166ms
+2025-10-29 18:06:48.146 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/users - null null
+2025-10-29 18:06:48.194 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi)'
+2025-10-29 18:06:48.199 +00:00 [INF] Route matched with {action = "GetAllUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllUsers() on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:06:48.223 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Username], [u].[Email], [u].[FirstName], [u].[LastName], [u].[CreatedAt], [u].[LastLoginAt]
+FROM [Users] AS [u]
+2025-10-29 18:06:48.232 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[UserManagementApi.DTO.UserDto, UserManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 18:06:48.248 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi) in 45.1585ms
+2025-10-29 18:06:48.251 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi)'
+2025-10-29 18:06:48.252 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/users - 200 null application/json; charset=utf-8 106.0909ms
+2025-10-29 18:06:48.258 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/users/682c9c31-0629-4d2f-9b52-0cb6c0af669b - null null
+2025-10-29 18:06:48.263 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi)'
+2025-10-29 18:06:48.267 +00:00 [INF] Route matched with {action = "GetUserById", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserById(System.Guid) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:06:48.320 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 18:06:48.323 +00:00 [INF] Executing OkObjectResult, writing value of type 'UserManagementApi.DTO.UserDto'.
+2025-10-29 18:06:48.324 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi) in 54.6316ms
+2025-10-29 18:06:48.326 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi)'
+2025-10-29 18:06:48.327 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/users/682c9c31-0629-4d2f-9b52-0cb6c0af669b - 200 null application/json; charset=utf-8 68.5422ms
+2025-10-29 18:06:48.336 +00:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5163/users/682c9c31-0629-4d2f-9b52-0cb6c0af669b - application/json 109
+2025-10-29 18:06:48.341 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi)'
+2025-10-29 18:06:48.344 +00:00 [INF] Route matched with {action = "UpdateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(System.Guid, UserManagementApi.DTO.UpdateUserDto) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:06:48.356 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 18:06:48.364 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [FirstName] = @p1, [LastName] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-10-29 18:06:48.371 +00:00 [INF] User updated: "682c9c31-0629-4d2f-9b52-0cb6c0af669b"
+2025-10-29 18:06:48.375 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-29 18:06:48.376 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi) in 28.6595ms
+2025-10-29 18:06:48.378 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi)'
+2025-10-29 18:06:48.380 +00:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5163/users/682c9c31-0629-4d2f-9b52-0cb6c0af669b - 204 null null 43.9515ms
+2025-10-29 18:06:48.383 +00:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5163/users/682c9c31-0629-4d2f-9b52-0cb6c0af669b - null 0
+2025-10-29 18:06:48.385 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi)'
+2025-10-29 18:06:48.389 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.Guid) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:06:48.396 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 18:06:48.412 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Users]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-10-29 18:06:48.418 +00:00 [INF] User deleted: "682c9c31-0629-4d2f-9b52-0cb6c0af669b"
+2025-10-29 18:06:48.419 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-29 18:06:48.420 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi) in 29.0955ms
+2025-10-29 18:06:48.421 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi)'
+2025-10-29 18:06:48.422 +00:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5163/users/682c9c31-0629-4d2f-9b52-0cb6c0af669b - 204 null null 39.3003ms
+2025-10-29 18:06:54.421 +00:00 [ERR] Failed to send login webhook to https://your-webhook-endpoint.com/api/login-events
+System.Net.Http.HttpRequestException: The SSL connection could not be established, see inner exception.
+ ---> System.Security.Authentication.AuthenticationException: Authentication failed because the remote party sent a TLS alert: 'InternalError'.
+ ---> System.ComponentModel.Win32Exception (0x80090326): The message received was unexpected or badly formatted.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ProcessAuthenticationWithTelemetryAsync(Boolean isAsync, CancellationToken cancellationToken)
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.EstablishSslConnectionAsync(SslClientAuthenticationOptions sslOptions, HttpRequestMessage request, Boolean async, Stream stream, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.AddHttp11ConnectionAsync(QueueItem queueItem)
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.HttpConnectionWaiter`1.WaitForConnectionWithTelemetryAsync(HttpRequestMessage request, HttpConnectionPool pool, Boolean async, CancellationToken requestCancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at Microsoft.Extensions.Http.Logging.LoggingScopeHttpMessageHandler.<SendCoreAsync>g__Core|5_0(HttpRequestMessage request, Boolean useAsync, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at UserManagementApi.Services.AuthService.SendLoginEventAsync(User user) in C:\Git\OakTires\code\UserManagementApi\Services\AuthService.cs:line 106
+2025-10-29 18:08:56.505 +00:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-29 18:08:56.587 +00:00 [INF] User profile is available. Using 'C:\Users\Owner\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-10-29 18:08:56.698 +00:00 [INF] Now listening on: http://localhost:5163
+2025-10-29 18:08:56.702 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-10-29 18:08:56.704 +00:00 [INF] Hosting environment: Development
+2025-10-29 18:08:56.704 +00:00 [INF] Content root path: C:\Git\OakTires\code\UserManagementApi
+2025-10-29 18:08:57.365 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/swagger/v1/swagger.json - null null
+2025-10-29 18:08:57.511 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 155.502ms
+2025-10-29 18:09:08.398 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5163/auth/register - application/json 166
+2025-10-29 18:09:08.484 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.AuthController.Register (UserManagementApi)'
+2025-10-29 18:09:08.509 +00:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(UserManagementApi.DTO.RegisterDto) on controller UserManagementApi.Controllers.AuthController (UserManagementApi).
+2025-10-29 18:09:08.678 +00:00 [INF] Executed DbCommand (19ms) [Parameters=[@__dto_Username_0='?' (Size = 4000), @__dto_Email_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__dto_Username_0 OR [u].[Email] = @__dto_Email_1) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-10-29 18:09:08.681 +00:00 [WRN] Registration failed for apitestuser
+2025-10-29 18:09:08.687 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-10-29 18:09:08.692 +00:00 [INF] Executed action UserManagementApi.Controllers.AuthController.Register (UserManagementApi) in 177.1356ms
+2025-10-29 18:09:08.694 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.AuthController.Register (UserManagementApi)'
+2025-10-29 18:09:08.699 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5163/auth/register - 400 null text/plain; charset=utf-8 301.2961ms
+2025-10-29 18:09:08.703 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5163/auth/login - application/json 70
+2025-10-29 18:09:08.708 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.AuthController.Login (UserManagementApi)'
+2025-10-29 18:09:08.713 +00:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(UserManagementApi.DTO.LoginDto) on controller UserManagementApi.Controllers.AuthController (UserManagementApi).
+2025-10-29 18:09:08.855 +00:00 [INF] Executed DbCommand (13ms) [Parameters=[@__dto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__dto_Username_0
+2025-10-29 18:09:09.361 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@p1='?' (DbType = Guid), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLoginAt] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2025-10-29 18:09:09.405 +00:00 [INF] Start processing HTTP request POST https://webhook.site/60a6a19a-e3e9-4a66-96d6-151fc5602c12
+2025-10-29 18:09:09.411 +00:00 [INF] Sending HTTP request POST https://webhook.site/60a6a19a-e3e9-4a66-96d6-151fc5602c12
+2025-10-29 18:09:09.481 +00:00 [INF] User logged in: apitestuser
+2025-10-29 18:09:09.484 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-10-29 18:09:09.493 +00:00 [INF] Executed action UserManagementApi.Controllers.AuthController.Login (UserManagementApi) in 775.3509ms
+2025-10-29 18:09:09.497 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.AuthController.Login (UserManagementApi)'
+2025-10-29 18:09:09.499 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5163/auth/login - 200 null application/json; charset=utf-8 796.0463ms
+2025-10-29 18:09:09.504 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/users - null null
+2025-10-29 18:09:09.562 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi)'
+2025-10-29 18:09:09.567 +00:00 [INF] Route matched with {action = "GetAllUsers", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllUsers() on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:09:09.592 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[Username], [u].[Email], [u].[FirstName], [u].[LastName], [u].[CreatedAt], [u].[LastLoginAt]
+FROM [Users] AS [u]
+2025-10-29 18:09:09.600 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[UserManagementApi.DTO.UserDto, UserManagementApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-10-29 18:09:09.621 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi) in 52.1013ms
+2025-10-29 18:09:09.622 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.GetAllUsers (UserManagementApi)'
+2025-10-29 18:09:09.624 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/users - 200 null application/json; charset=utf-8 119.902ms
+2025-10-29 18:09:09.630 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5163/users/a927699f-3728-4197-a23d-0fafb6d6b73a - null null
+2025-10-29 18:09:09.636 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi)'
+2025-10-29 18:09:09.641 +00:00 [INF] Route matched with {action = "GetUserById", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserById(System.Guid) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:09:09.695 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 18:09:09.698 +00:00 [INF] Executing OkObjectResult, writing value of type 'UserManagementApi.DTO.UserDto'.
+2025-10-29 18:09:09.700 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi) in 56.2468ms
+2025-10-29 18:09:09.701 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.GetUserById (UserManagementApi)'
+2025-10-29 18:09:09.702 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5163/users/a927699f-3728-4197-a23d-0fafb6d6b73a - 200 null application/json; charset=utf-8 72.1181ms
+2025-10-29 18:09:09.705 +00:00 [INF] Request starting HTTP/1.1 PUT http://localhost:5163/users/a927699f-3728-4197-a23d-0fafb6d6b73a - application/json 109
+2025-10-29 18:09:09.709 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi)'
+2025-10-29 18:09:09.713 +00:00 [INF] Route matched with {action = "UpdateUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUser(System.Guid, UserManagementApi.DTO.UpdateUserDto) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:09:09.726 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 18:09:09.753 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[@p3='?' (DbType = Guid), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [Email] = @p0, [FirstName] = @p1, [LastName] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+2025-10-29 18:09:09.757 +00:00 [INF] User updated: "a927699f-3728-4197-a23d-0fafb6d6b73a"
+2025-10-29 18:09:09.761 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-29 18:09:09.762 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi) in 46.7843ms
+2025-10-29 18:09:09.765 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.UpdateUser (UserManagementApi)'
+2025-10-29 18:09:09.766 +00:00 [INF] Request finished HTTP/1.1 PUT http://localhost:5163/users/a927699f-3728-4197-a23d-0fafb6d6b73a - 204 null null 61.2485ms
+2025-10-29 18:09:09.770 +00:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5163/users/a927699f-3728-4197-a23d-0fafb6d6b73a - null 0
+2025-10-29 18:09:09.774 +00:00 [INF] Executing endpoint 'UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi)'
+2025-10-29 18:09:09.779 +00:00 [INF] Route matched with {action = "DeleteUser", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteUser(System.Guid) on controller UserManagementApi.Controllers.UsersController (UserManagementApi).
+2025-10-29 18:09:09.787 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FirstName], [u].[LastLoginAt], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2025-10-29 18:09:09.810 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Users]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-10-29 18:09:09.816 +00:00 [INF] User deleted: "a927699f-3728-4197-a23d-0fafb6d6b73a"
+2025-10-29 18:09:09.817 +00:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2025-10-29 18:09:09.818 +00:00 [INF] Executed action UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi) in 36.8668ms
+2025-10-29 18:09:09.819 +00:00 [INF] Executed endpoint 'UserManagementApi.Controllers.UsersController.DeleteUser (UserManagementApi)'
+2025-10-29 18:09:09.820 +00:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5163/users/a927699f-3728-4197-a23d-0fafb6d6b73a - 204 null null 50.4158ms
+2025-10-29 18:09:09.883 +00:00 [INF] Received HTTP response headers after 468.6377ms - 200
+2025-10-29 18:09:09.885 +00:00 [INF] End processing HTTP request after 480.6393ms - 200
